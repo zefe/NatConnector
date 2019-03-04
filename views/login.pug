@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        title users
+    body
+        h1 Log in
+        form(method='POST' action='/add/user')
+            #form-group
+            label Email:
+            input.form-control(type='email', placeholder='name@email.com' name='email')    
+            #form-group
+            label Password:
+            input.form-control(type='password' name='password')
+            br
+            button.btn.btn-primary(type='submit') Log in

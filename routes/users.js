@@ -1,23 +1,39 @@
 const express = require("express")
 const router = express.Router()
 
-const users = [
-    {
-        name: "zefe1",
-        email: "zefe1@test.com",
-        password: "helloword1"
-    },
-    {
-        name: "zefe2",
-        email: "zefe2@test.com",
-        password: "helloword2"
-    }
-];
+//traemos el modelo de usuarios
+let User = require('../utils/users');
 
-router.get("/", function(req, res){
-    res.render("users", { users });
+//Register form
+router.get("/register", function(req, res){
+    res.render("register");
 });
 
+//Register process
+router.post('/register', function(req, res){
+    
+    console.log(req.body)
+    
+    const name = req.body.name;
+    const email = req.body.email;
+    const password = req.body.password;
+
+    let newUser = [{
+        name: '',
+        email: '',
+        password: ''
+    }];
+
+    
+
+
+    res.redirect('/users/login')
+
+});
+
+router.get('/login', function(req, res){
+    res.render('login')
+})
 
 
 module.exports = router;

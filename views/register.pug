@@ -1,0 +1,18 @@
+doctype html
+html
+    head
+        title users
+    body
+        h1 Registrar usuario
+        form(method='POST', action='/users/register')
+            #form-group
+            label Name:
+            input.form-control(type='text', placeholder='first and last' name='name')
+            #form-group
+            label Email:
+            input.form-control(type='email', placeholder='name@email.com' name='email')    
+            #form-group
+            label Password:
+            input.form-control(type='password' name='password')
+            br
+            input.btn.btn-primary(type='submit', value='Submit')

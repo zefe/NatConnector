@@ -1,23 +1,12 @@
-const express = require('express')
-const path = require('path')
-const app = express()
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
 
-// const usersRouter = require('./routes/users')
+const app = express();
 
-let users = [
-    {
-        id: 1,
-        name: "zefe1",
-        email: "zefe1@test.com",
-        password: "helloword1"
-    },
-    {
-        id: 2,
-        name: "zefe2",
-        email: "zefe2@test.com",
-        password: "helloword2"
-    }
-];
+//middlewares
+app.use(bodyParser.json()); 
+
 
 //template engine
 app.set('views', path.join(__dirname, 'views'))
@@ -28,30 +17,10 @@ app.set('view engine', 'pug')
 //Set public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Home route
-app.get("/", function(req, res) {
-    res.render("users", { users })
-})
+// route files
+let users = require('./routes/users');
+app.use('/users', users);
 
-
-//get single user
-app.get('/user/:id', function(req, res){
-    const { userId } = req.params;
-
-    res.render('user', { user})
-    
-    res.status(200).json({
-        data: users[0],
-        message: 'userId retrieved'
-    });
-})
-
-//add route
-app.get("/add/user", function(req, res){
-    res.render("add_user", {
-        title: 'New user'
-    });
-});
 
 //server
 const server = app.listen(8000, function() {
