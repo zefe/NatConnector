@@ -4,7 +4,7 @@
   "description": "Conectar pacientes 🚶‍♂🚶‍♀ con expertos 👩‍⚕👨‍⚕ de la Medicina alternativa",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "start": "nodemon index"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/zefe/NatConnector#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "pug": "^2.0.3"
   }
 }
