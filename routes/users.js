@@ -5,12 +5,12 @@ const router = express.Router()
 let User = require('../utils/users');
 
 //Register form
-router.get("/register", function(req, res){
-    res.render("register");
+router.get("/signin", function(req, res){
+    res.render("signin");
 });
 
 //Register process
-router.post('/register', function(req, res){
+router.post('/', function(req, res){
     
     console.log(req.body)
     

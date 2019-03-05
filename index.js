@@ -12,14 +12,17 @@ app.use(bodyParser.json());
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
-// app.use('/users', usersRouter)
-
 //Set public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+// app.use('/users', usersRouter)
+app.all('/', function(req, res) {
+  res.render("home");
+})
+
 // route files
 let users = require('./routes/users');
-app.use('/users', users);
+app.use('/', users);
 
 
 //server
