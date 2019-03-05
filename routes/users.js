@@ -17,17 +17,8 @@ router.post('/register', function(req, res){
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
-
-    let newUser = [{
-        name: '',
-        email: '',
-        password: ''
-    }];
-
     
-
-
-    res.redirect('/users/login')
+    res.redirect('/users/register')
 
 });
 

@@ -2,24 +2,35 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 
+const usersData = require('./utils/users')
+
 const app = express();
 
 //middlewares
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); 
 
+app.get('/',function(req,res){
+  res.sendfile("views/index.html");
+});
+app.post('/signin',function(req,res){
+  let user_name=req.body.name;
+  let email =req.body.email;
+  let password=req.body.password;
 
-//template engine
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'pug')
+  console.log("User name = "+user_name+", password is "+password);
 
-// app.use('/users', usersRouter)
+  usersData.unshift({name: user_name, email: email, password: password })
 
-//Set public folder
-app.use(express.static(path.join(__dirname, 'public')));
+  console.log(usersData);
+  alert('Sucess full', user_name+ " "+ email)
+  res.redirect('/usuarios');
+});
 
-// route files
-let users = require('./routes/users');
-app.use('/users', users);
+app.all('/usuarios', (req, res) => {
+  res.send(usersData)
+  res.end()
+})
 
 
 //server
