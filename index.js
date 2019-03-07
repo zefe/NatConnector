@@ -5,15 +5,18 @@ const bodyParser = require('body-parser');
 const app = express();
 
 //middlewares
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());
+
+//Set public folder
+app.use(express.static( path.join(__dirname, 'public')));
+// app.use("/static", express.static(path.join(__dirname, "public")));
 
 
 //template engine
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
-//Set public folder
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 // app.use('/users', usersRouter)
 app.all('/', function(req, res) {

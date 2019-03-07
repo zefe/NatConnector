@@ -1,18 +1,20 @@
 doctype html
 html
-    head
-        title users
-    body
-        h1 Registrar usuario
-        form(method='POST', action='/signin')
-            #form-group
-            label Name:
-            input.form-control(type='text', placeholder='first and last' name='name')
-            #form-group
-            label Email:
-            input.form-control(type='email', placeholder='name@email.com' name='email')    
-            #form-group
-            label Password:
-            input.form-control(type='password' name='password')
-            br
-            input.btn.btn-primary(type='submit', value='Submit')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Sign Up
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(src='js/script-add-user.js')
+  body
+    form#sign-up-form(action='POST')
+      div
+        label(for='name') Name
+        input#name(type='text', name='name')
+      div
+        label(for='email') Email
+        input#email(type='text', name='email')
+      div
+        label(for='password') Password
+        input#password(type='password', name='password')
+      input#submit(type='button', value='Submit')
