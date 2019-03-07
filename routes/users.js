@@ -5,12 +5,12 @@ const router = express.Router()
 let usersData = require('../utils/users');
 
 //Register form
-router.get("/signin", function(req, res){
-    res.render("signin");
+router.get("/signup", function(req, res){
+    res.render("signup");
 });
 
 //Register process
-router.post('/signin', function(req, res){
+router.post('/signup', function(req, res){
     let user_name=req.body.name;
     let email =req.body.email;
     let password=req.body.password;
@@ -26,6 +26,10 @@ router.post('/signin', function(req, res){
 
 router.get('/login', function(req, res){
     res.render('login')
+})
+
+router.get('/users', function(req, res){
+    res.send({ usersData });
 })
 
 

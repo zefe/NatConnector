@@ -1,4 +1,3 @@
-alert('hello word')
 window.addEventListener('load', function(){
     const button = document.getElementById('submit')
     button.addEventListener('click', function() {
@@ -6,7 +5,7 @@ window.addEventListener('load', function(){
       let email = document.getElementById('email').value;
       let password= document.getElementById('password').value;
       
-      fetch('/signin', {
+      fetch('/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
